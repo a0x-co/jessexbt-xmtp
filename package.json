@@ -1,0 +1,47 @@
+{
+  "name": "xmtp-agent-sdk",
+  "version": "1.0.0",
+  "description": "XMTP Agent using official @xmtp/agent-sdk",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node --max-old-space-size=4096 dist/index.js",
+    "dev": "tsx src/index.ts",
+    "dev:watch": "tsx watch src/index.ts",
+    "gen:keys": "tsx scripts/generate-keys.ts",
+    "deploy:vm": "chmod +x deploy-vm.sh && ./deploy-vm.sh",
+    "deploy:production": "chmod +x deploy-production.sh && ./deploy-production.sh",
+    "setup-pm2": "chmod +x setup-pm2.sh && ./setup-pm2.sh",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop xmtp-agent-sdk",
+    "pm2:restart": "pm2 restart xmtp-agent-sdk",
+    "pm2:logs": "pm2 logs xmtp-agent-sdk",
+    "pm2:status": "pm2 status"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^7.11.6",
+    "@hono/node-server": "^1.19.5",
+    "@xmtp/agent-sdk": "^1.0.1",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "hono": "^4.9.9",
+    "sharp": "^0.34.4",
+    "viem": "^2.7.9",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.13",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.2"
+  },
+  "keywords": [
+    "xmtp",
+    "agent",
+    "agent-sdk",
+    "messaging",
+    "web3"
+  ],
+  "author": "A0x Team",
+  "license": "MIT"
+}
